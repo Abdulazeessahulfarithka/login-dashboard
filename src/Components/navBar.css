@@ -1,0 +1,21 @@
+.navbar{
+    height:110px;
+    width:1600px;
+}
+.banner{
+    width:1200px;
+    height:75px;
+    top:27px;
+    left:48px;
+    gap:217px;
+}
+.bg-no-repeat{
+    width: 301.69px;
+height: 75.13px;
+gap: 0px;
+opacity: 0px;
+}
+.search{
+justify-content:center;
+
+}
