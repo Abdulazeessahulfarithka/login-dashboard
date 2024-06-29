@@ -4,14 +4,14 @@ function Dashboard() {
   return (
     <>
        <div>
-        <h2>Welcome </h2>
+        <h2>Welcome <em>Smitha Ma'am</em></h2>
         <h6>Super Admin at Cognisite Pvt.Ltd</h6>
        </div>
        
-<div className='col-lg-6 mt-5'>
+<div className='col-lg-6 mt-5 '>
  <div className='row'>
-   <h3>Current Statistics</h3>
-   <div class="card border-info mb-3" style={{"max-width":"18em"}}>
+   <h3 >Current Statistics</h3>
+   <div class="card border-info mb-3 " style={{"max-width":"18em"}}>
   <div class="card-body text-primary">
     <h5 class="card-title" style={{"color":"blue"}}>6</h5>
     <p class="card-text">No of Organisation</p>

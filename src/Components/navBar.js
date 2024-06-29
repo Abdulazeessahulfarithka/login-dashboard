@@ -7,7 +7,7 @@ import { Badge, BadgeOutlined } from '@mui/icons-material';
 function NavBar() {
   return (
     <>
-    <div className='col-lg-2'>
+    <div className='col-lg-7'>
     <nav className="navbar navbar-expand navbar-light bg-white topbar mt-1 mb-1 static-top shadow">
     <ul className='banner'>
     <img className='bg-no-repeat' src="https://cognisite-cs-image-prod.s3.amazonaws.com/Logo.png" alt="loginPagePoster" />
