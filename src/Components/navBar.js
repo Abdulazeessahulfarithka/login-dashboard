@@ -3,7 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import './navBar.css';
 import { Link } from 'react-router-dom';
 import UserContext from './UserContext';
-import profileImage from '../assets/profile1.png';  // Importing the image directly
+import profileImage from '../assets/profile.png';  
 
 function NavBar() {
   const userData = useContext(UserContext);
