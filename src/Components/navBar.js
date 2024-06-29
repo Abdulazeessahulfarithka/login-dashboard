@@ -2,7 +2,6 @@ import React from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import "./navBar.css"
 import { Link } from 'react-router-dom';
-import { Badge, BadgeOutlined } from '@mui/icons-material';
 
 function NavBar() {
   return (
@@ -31,7 +30,7 @@ function NavBar() {
             <img
               class="img-profile rounded-circle"
               src="img/undraw_profile.svg"
-            />
+             alt="login"/>
           </Link>
     </div>
   </nav>
