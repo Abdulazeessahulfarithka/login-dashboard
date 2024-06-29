@@ -1,22 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
-import "./navBar.css"
+import './navBar.css';
 import { Link } from 'react-router-dom';
+import UserContext from './UserContext';
+import profileImage from '../assets/profile1.png';  // Importing the image directly
 
 function NavBar() {
+  const userData = useContext(UserContext);
+
   return (
-    <>
     <div className='col-lg-7'>
-    <nav className="navbar navbar-expand navbar-light bg-white topbar mt-1 mb-1 static-top shadow">
-    <ul className='banner'>
-    <img className='bg-no-repeat' src="https://cognisite-cs-image-prod.s3.amazonaws.com/Logo.png" alt="loginPagePoster" />
-    </ul>
-    <div className='col-lg-4'>
-      <SearchIcon/>
-    </div>
-    <div className='col-sm-3'>
-    <Link
-            class="nav-link dropdown-toggle"
+      <nav className="navbar navbar-expand navbar-light bg-white topbar mt-1 mb-1 static-top shadow">
+        <ul className='banner'>
+          <img className='bg-no-repeat' src="https://cognisite-cs-image-prod.s3.amazonaws.com/Logo.png" alt="loginPagePoster" />
+        </ul>
+        <div className='col-lg-4'>
+          <SearchIcon />
+        </div>
+        <div className='col-sm-3'>
+          <Link
             to="/"
             id="userDropdown"
             role="button"
@@ -24,20 +26,18 @@ function NavBar() {
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-              Login
+            <span className="mr-2 d-none d-lg-inline text-gray-600 small">
+              {userData.user.name}
             </span>
             <img
-              class="img-profile rounded-circle"
-              src="img/undraw_profile.svg"
-             alt="login"/>
+              src={profileImage}  // Using the imported image
+              alt="profile"
+            />
           </Link>
+        </div>
+      </nav>
     </div>
-  </nav>
-    </div>
-    </>
-);
-  
+  );
 }
 
-export default NavBar
+export default NavBar;

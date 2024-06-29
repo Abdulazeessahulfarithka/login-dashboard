@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import UserContext from './UserContext'
 
 function Dashboard() {
+  const userData=useContext(UserContext)
   return (
     <>
        <div>
-        <h2>Welcome <em>Smitha Ma'am</em></h2>
+        <h2>Welcome <span>{userData.user.name}</span></h2>
         <h6>Super Admin at Cognisite Pvt.Ltd</h6>
        </div>
        
