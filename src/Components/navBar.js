@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import SearchIcon from '@mui/icons-material/Search';
+import search from "../assets/search.png"
 import './navBar.css';
 import { Link } from 'react-router-dom';
 import UserContext from './UserContext';
@@ -14,8 +14,13 @@ function NavBar() {
         <ul className='banner'>
           <img className='bg-no-repeat' src="https://cognisite-cs-image-prod.s3.amazonaws.com/Logo.png" alt="loginPagePoster" />
         </ul>
-        <div className='col-lg-4'>
-          <SearchIcon />
+        <div className='col-lg-3 mx-12'>
+        <div class="input-group rounded">
+  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+  <span class="input-group-text border-0" id="search-addon">
+    <i class="fas fa-search"></i>
+  </span>
+</div>
         </div>
         <div className='col-sm-3'>
           <Link
