@@ -24,7 +24,7 @@ function NavBar() {
 </div>
         </div>
         <div className='col-lg-1 mt-4'>
-        <img  className='w-[50%]'  src={Badge} alt="badge"/>
+        <img  className='w-[45%]'  src={Badge} alt="badge"/>
         </div>
         <div className='col-sm-3'>
           <Link

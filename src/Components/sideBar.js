@@ -6,7 +6,7 @@ function Sidebar() {
     <>
       <div className="">
       <div
-      class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+      class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion"
       id="accordionSidebar"
     >
       <a
