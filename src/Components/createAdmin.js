@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import  uploadImage from "../assets/upload.png";
+import uploadImage from "../assets/upload.png";
 
 function CreateAdmin() {
   const formik = useFormik({
@@ -11,6 +11,8 @@ function CreateAdmin() {
       confirmPassword: '',
       contactNumber: '',
       address: '',
+      organization: '',
+      file: null, // Add file to the initial values
     },
     validate: values => {
       let errors = {};
@@ -39,8 +41,14 @@ function CreateAdmin() {
     },
     onSubmit: values => {
       console.log(values);
+      // Handle the file upload as needed
     },
   });
+
+  // Handle file input change
+  const handleFileChange = (event) => {
+    formik.setFieldValue('file', event.currentTarget.files[0]);
+  };
 
   return (
     <div className='container mt-5'>
@@ -130,9 +138,26 @@ function CreateAdmin() {
               name="organization"
               type="text"
               className='form-control'
-              // If organization is part of the form, add it to initialValues
+              value={formik.values.organization}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
             />
-            <img src={uploadImage} alt="upload"/>
+          </div>
+          <div className='col-lg-6 '>
+            <label>Upload File</label>
+            <input
+              name="file"
+              type="file"
+              className='form-control d-none'
+              onChange={handleFileChange}
+              ref={input => formik.fileInput = input} // reference to the file input
+            />
+            <img 
+              src={uploadImage} 
+              alt="upload" 
+              style={{cursor: 'pointer'}}
+              onClick={() => formik.fileInput.click()} // trigger file input click
+            />
           </div>
         </div>
         <div className='row'>
