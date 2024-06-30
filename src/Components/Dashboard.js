@@ -5,14 +5,11 @@ function Dashboard() {
   const userData=useContext(UserContext)
   return (
     <>
-       <div>
-        <h2>Welcome <span>{userData.user.name}</span></h2>
+        <h2 className=''>Welcome <span>{userData.user.name}</span></h2>
         <h6>Super Admin at Cognisite Pvt.Ltd</h6>
-       </div>
-       
-<div className='col-lg-6 mt-5 '>
- <div className='row'>
-   <h3 >Current Statistics</h3>
+  <div className='col-lg-6 mt-5 '>
+ <div className='row '>
+   <h3 className='mx-0'>Current Statistics</h3>
    <div class="card border-info mb-3 " style={{"max-width":"18em"}}>
   <div class="card-body text-primary">
     <h5 class="card-title" style={{"color":"blue"}}>6</h5>
@@ -31,6 +28,7 @@ function Dashboard() {
 </div>
 </div>
 <h3>List of Admin</h3>
+<div className='container'> 
 <table class="table">
   <thead>
     <tr>
@@ -69,6 +67,7 @@ function Dashboard() {
     </tr>
   </tbody>
 </table>
+</div>
     </>
   )
 }

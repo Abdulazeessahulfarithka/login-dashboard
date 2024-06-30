@@ -5,6 +5,7 @@ import Portal from './Components/portal';
 import Login from './Components/login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CreateOrganisation from './Components/createOrganisation';
+import CreateAdmin from './Components/createAdmin';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route path="/portal" element={<Portal/>}>
       <Route path="dashboard" element={<Dashboard/>}/>
       <Route path="createorganisation" element={<CreateOrganisation/>}/>
+      <Route path="createadmin" element={<CreateAdmin/>}/>
       </Route>
     </Routes>
    </BrowserRouter>
