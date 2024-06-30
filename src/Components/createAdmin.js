@@ -1,49 +1,151 @@
-import React from 'react'
+import React from 'react';
+import { useFormik } from 'formik';
+import  uploadImage from "../assets/upload.png";
 
-function createAdmin() {
+function CreateAdmin() {
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      contactNumber: '',
+      address: '',
+    },
+    validate: values => {
+      let errors = {};
+
+      if (!values.name) {
+        errors.name = "Please enter a name";
+      }
+
+      if (!values.email) {
+        errors.email = "Please enter an email";
+      } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+        errors.email = "Email address is invalid";
+      }
+
+      if (!values.password) {
+        errors.password = "Please enter a password";
+      }
+
+      if (!values.confirmPassword) {
+        errors.confirmPassword = "Please enter a confirm password";
+      } else if (values.password !== values.confirmPassword) {
+        errors.confirmPassword = "Passwords do not match";
+      }
+
+      return errors;
+    },
+    onSubmit: values => {
+      console.log(values);
+    },
+  });
+
   return (
     <div className='container mt-5'>
-    <div className='row'>
-        <div className='col-lg-6'>
+      <form onSubmit={formik.handleSubmit}>
+        <div className='row'>
+          <div className='col-lg-6'>
             <label>Name</label>
-            <input class="input" type={"text"} className='form-control'/>
-        </div>
-        <div className='col-lg-6'>
+            <input
+              name="name"
+              type="text"
+              className='form-control'
+              value={formik.values.name}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.name && formik.errors.name ? (
+              <div className="text-danger">{formik.errors.name}</div>
+            ) : null}
+          </div>
+          <div className='col-lg-6'>
             <label>Email</label>
-            <input class="input" type={"text"} className='form-control'/>
-        </div>
-        <div className='col-lg-6 '>
+            <input
+              name="email"
+              type="email"
+              className='form-control'
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.email && formik.errors.email ? (
+              <div className="text-danger">{formik.errors.email}</div>
+            ) : null}
+          </div>
+          <div className='col-lg-6 '>
             <label>Password</label>
-            <input type={"text"} className='form-control'/>
-        </div>
-        <div className='col-lg-6 '>
-            <label>Contact Number</label>
-            <input type={"text"} className='form-control'/>
-        </div>
-        <div className='col-lg-6 '>
+            <input
+              name="password"
+              type="password"
+              className='form-control'
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.password && formik.errors.password ? (
+              <div className="text-danger">{formik.errors.password}</div>
+            ) : null}
+          </div>
+          <div className='col-lg-6 '>
             <label>Confirm Password</label>
-            <input type={"text"} className='form-control'/>
-        </div>
-        <div className='col-lg-6 '>
+            <input
+              name="confirmPassword"
+              type="password"
+              className='form-control'
+              value={formik.values.confirmPassword}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
+              <div className="text-danger">{formik.errors.confirmPassword}</div>
+            ) : null}
+          </div>
+          <div className='col-lg-6 '>
+            <label>Contact Number</label>
+            <input
+              name="contactNumber"
+              type="text"
+              className='form-control'
+              value={formik.values.contactNumber}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+          </div>
+          <div className='col-lg-6 '>
             <label>Address</label>
-            <input type={"text"} className='form-control'/>
-        </div>
-        <div className='col-lg-6 '>
+            <input
+              name="address"
+              type="text"
+              className='form-control'
+              value={formik.values.address}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+          </div>
+          <div className='col-lg-6 '>
             <label>Select Organization</label>
-            <input type={"text"} className='form-control'/>
+            <input
+              name="organization"
+              type="text"
+              className='form-control'
+              // If organization is part of the form, add it to initialValues
+            />
+            <img src={uploadImage} alt="upload"/>
+          </div>
         </div>
-       
+        <div className='row'>
+          <div className='col-lg-1'>
+            <button type="submit" className="btn btn-primary mt-5">Submit</button>
+          </div>
+          <div className='col-lg-1'>
+            <button type="reset" className="btn btn-info mt-5 mx-0" onClick={formik.handleReset}>Reset</button>
+          </div>
+        </div>
+      </form>
     </div>
-    <div className='row'>
-        <div className='col-lg-1'>
-        <button type="button" class="btn btn-primary mt-5">Submit</button>
-        </div>
-        <div className='col-lg-1'>
-        <button type="button" class="btn btn-info  mt-3 mt-5 mx-0">Reset</button>
-         </div>
-    </div>
-        </div>
-  )
+  );
 }
 
-export default createAdmin
+export default CreateAdmin;

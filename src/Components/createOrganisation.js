@@ -1,5 +1,5 @@
 import React from 'react'
-
+import uploadImage from "../assets/upload.png"
 function createOrganisation() {
   return (
     <div className='container mt-5'>
@@ -38,7 +38,7 @@ function createOrganisation() {
     </div>
     <div className='col-lg-6 mt-4'>
         <label>Organisation Logo</label>
-        
+        <img src={uploadImage} alt="upload"/>
     </div>
 </div>
 
